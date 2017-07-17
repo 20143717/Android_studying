@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">第二次作业</string>		
+	<string name="write">写入</string>		
+	<string name="filelist">文件列表</string>
+	<string name="filename">文件名</string>
+	<string name="filecontect">文件内容</string>
+	<string name="filetitle">请输入文件名:</string>
+	<string name="return_">返回</string>
+	<string name="save">保存</string>
+</resources>
