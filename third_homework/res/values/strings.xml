@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">third_homework</string>
+    <string name="action_settings">Settings</string>
+    <string name="title">学生成绩</string>
+    <string name="newer">新增</string>
+    <string name="insert">插入</string>
+	<string name="search_1">查询一</string>
+	<string name="search_2">查询二</string>
+	<string name="revise">编辑</string>
+	
+	<string name="stu_number">学号</string>
+	<string name="stu_name">姓名</string>
+	<string name="stu_classname">课程名称</string>
+	<string name="stu_grade">成绩</string>
+	
+</resources>
