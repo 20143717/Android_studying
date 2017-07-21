@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+    <LinearLayout 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+    <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+       	 android:text="@string/stu_number"
+        />
+	<EditText
+	    android:id="@+id/stu_number"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    />
+    </LinearLayout>
+    <LinearLayout 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_weight="1" >
+    <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+       	 android:text="@string/stu_classname"
+        />
+	<EditText
+	    android:id="@+id/stu_classname"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	   	android:width="300px"
+	    />
+    </LinearLayout>
+    <Button
+        android:id="@+id/search_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/search" 
+    />
+    <ListView
+        android:id="@+id/show"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"  
+     />
+</LinearLayout>

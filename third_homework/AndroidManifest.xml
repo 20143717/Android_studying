@@ -24,7 +24,12 @@
         <activity android:name="com.example.third_homework.NewActivity"
 				android:label="@string/newer">
 		</activity>
-		
+		<activity android:name="com.example.third_homework.search_1"
+				android:label="@string/search">
+		</activity>
+		<activity android:name="com.example.third_homework.search_2"
+				android:label="@string/search">
+		</activity>
     </application>
 
 </manifest>

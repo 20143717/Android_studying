@@ -9,10 +9,11 @@
 	<string name="search_1">查询一</string>
 	<string name="search_2">查询二</string>
 	<string name="revise">编辑</string>
-	
+	<string name="search">查询</string>
 	<string name="stu_number">学号</string>
 	<string name="stu_name">姓名</string>
 	<string name="stu_classname">课程名称</string>
 	<string name="stu_grade">成绩</string>
+	<string name="search_result">搜索结果</string>
 	
 </resources>
