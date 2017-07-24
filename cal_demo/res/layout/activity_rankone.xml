@@ -34,6 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="95dp"
+            android:gravity="center"
             android:textColor="#ffffff"/>
         </LinearLayout>
         <TextView
@@ -42,7 +43,7 @@
 			android:layout_height="100dp"
 			android:layout_marginLeft="40dp"
 			android:layout_marginRight="40dp"
-			android:layout_marginTop="5dp"
+			android:textSize="90dp"
 			android:gravity="right"
 			android:background="#00ff00ff"/>
     </LinearLayout>
@@ -66,7 +67,7 @@
 					android:layout_weight="1"
 					android:layout_marginLeft="2dp"
 		        	android:layout_marginRight="2dp"
-					android:background="@drawable/button_shape"/>
+		        	android:background="@drawable/button_shape"/>
 				<Button
 				    android:id="@+id/two"
 				    android:layout_width="120dp"
@@ -74,7 +75,7 @@
 					android:layout_weight="1"
 					android:layout_marginLeft="2dp"
 		        	android:layout_marginRight="2dp"
-					android:background="@drawable/button_shape"/>
+		        	android:background="@drawable/button_shape"/>
 				<Button
 				    android:id="@+id/three"
 				    android:layout_width="120dp"
@@ -82,7 +83,7 @@
 					android:layout_weight="1"
 					android:layout_marginLeft="2dp"
 		        	android:layout_marginRight="2dp"
-					android:background="@drawable/button_shape"/>
+		        	android:background="@drawable/button_shape"/>
 		    </LinearLayout>
 		    <LinearLayout
 			    android:layout_width="fill_parent"
@@ -98,8 +99,7 @@
 			        android:layout_weight="1"
 			        android:layout_marginLeft="2dp"
 		        	android:layout_marginRight="2dp"
-			        android:background="@drawable/button_shape"
-			        />
+		        	android:background="@drawable/button_shape"/>
 			    <Button
 			        android:id="@+id/five"
 			        android:layout_width="120dp"
@@ -107,16 +107,15 @@
 			        android:layout_weight="1"
 			        android:layout_marginLeft="2dp"
 		        	android:layout_marginRight="2dp"
-			        android:background="@drawable/button_shape"
-			        />
+		        	android:background="@drawable/button_shape"/>
 			    <Button
 			        android:id="@+id/six"
 			        android:layout_width="120dp"
 			        android:layout_height="80dp"
 			        android:layout_weight="1"
-		   	 		android:layout_marginLeft="2dp"
+			        android:layout_marginLeft="2dp"
 		        	android:layout_marginRight="2dp"
-			        android:background="@drawable/button_shape"/>
+		        	android:background="@drawable/button_shape"/>
 		    </LinearLayout>
 		    <LinearLayout
 			    android:layout_width="match_parent"
