@@ -42,32 +42,38 @@ public final class R {
         public static final int ic_launcher=0x7f020008;
         public static final int ok=0x7f020009;
         public static final int okbutton=0x7f02000a;
-        public static final int red=0x7f02000b;
-        public static final int red2=0x7f02000c;
-        public static final int redbutton=0x7f02000d;
-        public static final int shadow=0x7f02000e;
-        public static final int yellow=0x7f02000f;
-        public static final int yellowbutton=0x7f020010;
+        public static final int orange=0x7f02000b;
+        public static final int orangebutton=0x7f02000c;
+        public static final int purple=0x7f02000d;
+        public static final int purplebutton=0x7f02000e;
+        public static final int red=0x7f02000f;
+        public static final int red2=0x7f020010;
+        public static final int redbutton=0x7f020011;
+        public static final int shadow=0x7f020012;
+        public static final int shot=0x7f020013;
+        public static final int yellow=0x7f020014;
+        public static final int yellowbutton=0x7f020015;
     }
     public static final class id {
-        public static final int action_settings=0x7f09000d;
-        public static final int answer=0x7f090003;
-        public static final int eight=0x7f09000b;
-        public static final int five=0x7f090008;
-        public static final int four=0x7f090007;
-        public static final int nine=0x7f09000c;
-        public static final int one=0x7f090004;
-        public static final int rank=0x7f090000;
-        public static final int seven=0x7f09000a;
-        public static final int six=0x7f090009;
-        public static final int step=0x7f090001;
-        public static final int target=0x7f090002;
-        public static final int three=0x7f090006;
-        public static final int two=0x7f090005;
+        public static final int action_settings=0x7f09000e;
+        public static final int answer=0x7f090004;
+        public static final int eight=0x7f09000c;
+        public static final int five=0x7f090009;
+        public static final int four=0x7f090008;
+        public static final int ll_group=0x7f090000;
+        public static final int nine=0x7f09000d;
+        public static final int one=0x7f090005;
+        public static final int rank=0x7f090001;
+        public static final int seven=0x7f09000b;
+        public static final int six=0x7f09000a;
+        public static final int step=0x7f090002;
+        public static final int target=0x7f090003;
+        public static final int three=0x7f090007;
+        public static final int two=0x7f090006;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
-        public static final int activity_rankone=0x7f030001;
+        public static final int activity_rank=0x7f030001;
     }
     public static final class menu {
         public static final int main=0x7f080000;

@@ -24,22 +24,66 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.cal_demo.RankzeroActivity"
+            android:name="com.example.cal_demo.Rank0Activity"
             android:label="@string/title_activity_rankone" >
         </activity>
         <activity
-            android:name="com.example.cal_demo.RankoneActivity"
+            android:name="com.example.cal_demo.Rank1Activity"
             android:label="@string/title_activity_rankone" >
         </activity>
         <activity
-            android:name="com.example.cal_demo.RanktwoActivity"
+            android:name="com.example.cal_demo.Rank2Activity"
             android:label="@string/title_activity_rankone" >
         </activity>
         <activity
-            android:name="com.example.cal_demo.RankthreeActivity"
+            android:name="com.example.cal_demo.Rank3Activity"
+            android:label="@string/title_activity_rankone" >
+        </activity>
+        <activity
+            android:name="com.example.cal_demo.Rank4Activity"
+            android:label="@string/title_activity_rankone" >
+        </activity>
+        <activity
+            android:name="com.example.cal_demo.Rank998Activity"
+            android:label="@string/title_activity_rankone" >
+        </activity>
+        <activity
+            android:name="com.example.cal_demo.Rank5Activity"
+            android:label="@string/title_activity_rankone" >
+        </activity>
+        <activity
+            android:name="com.example.cal_demo.Rank6Activity"
+            android:label="@string/title_activity_rankone" >
+        </activity>
+        <activity
+            android:name="com.example.cal_demo.Rank7Activity"
+            android:label="@string/title_activity_rankone" >
+        </activity>
+        <activity
+            android:name="com.example.cal_demo.Rank8Activity"
+            android:label="@string/title_activity_rankone" >
+        </activity>
+        <activity
+            android:name="com.example.cal_demo.Rank997Activity"
+            android:label="@string/title_activity_rankone" >
+        </activity>
+        <activity
+            android:name="com.example.cal_demo.Rank9Activity"
+            android:label="@string/title_activity_rankone" >
+        </activity>
+        <activity
+            android:name="com.example.cal_demo.Rank10Activity"
+            android:label="@string/title_activity_rankone" >
+        </activity>
+        <activity
+            android:name="com.example.cal_demo.Rank11Activity"
+            android:label="@string/title_activity_rankone" >
+        </activity>
+        <activity
+            android:name="com.example.cal_demo.Rank12Activity"
             android:label="@string/title_activity_rankone" >
         </activity>
     </application>
-
+    
 
 </manifest>
