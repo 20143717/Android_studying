@@ -1,7 +1,7 @@
 package com.example.cal_demo;
 
 import com.example.cal_demo.MainActivity;
-import com.example.cal_demo.RankoneActivity;
+import com.example.cal_demo.RankzeroActivity;
 
 import android.R.integer;
 import android.os.Bundle;
@@ -14,7 +14,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends Activity {
-    int rank=1;
+    int rank=0;
+    String x;
     private int maxn;
     private Button button5;
     TextView rankTextView;
@@ -41,12 +42,37 @@ public class MainActivity extends Activity {
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
 				switch (rank) {
+					case 0:
+						Intent intent0 = new Intent(MainActivity.this, RankzeroActivity.class);
+						Bundle bundle0=new Bundle();
+						x=Integer.toString(rank);
+						bundle0.putString("num",x);
+						intent0.putExtras(bundle0);
+						startActivityForResult(intent0, 1);
+						break;
 					case 1:
-						Intent intent = new Intent(MainActivity.this, RankoneActivity.class);
-						Bundle bundle=new Bundle();
-						bundle.putInt("num", rank);
-						intent.putExtras(bundle);
-						startActivityForResult(intent, 1);
+						Intent intent1 = new Intent(MainActivity.this, RankoneActivity.class);
+						Bundle bundle1=new Bundle();
+						x=Integer.toString(rank);
+						bundle1.putString("num",x);
+						intent1.putExtras(bundle1);
+						startActivityForResult(intent1,1);
+						break;
+					case 2:
+						Intent intent2 = new Intent(MainActivity.this, RanktwoActivity.class);
+						Bundle bundle2=new Bundle();
+						x=Integer.toString(rank);
+						bundle2.putString("num",x);
+						intent2.putExtras(bundle2);
+						startActivityForResult(intent2,1);
+						break;
+					case 3:
+						Intent intent3 = new Intent(MainActivity.this, RankthreeActivity.class);
+						Bundle bundle3=new Bundle();
+						x=Integer.toString(rank);
+						bundle3.putString("num",x);
+						intent3.putExtras(bundle3);
+						startActivityForResult(intent3,1);
 						break;
 					default:
 						break;
@@ -62,8 +88,9 @@ public class MainActivity extends Activity {
 		// TODO Auto-generated method stub
     	if(requestCode==resultCode){
     		Bundle bundle = data.getExtras();
-			String x=bundle.getString("num");
-			maxn= Integer.parseInt(x);
+			x=bundle.getString("num");
+			rank = Integer.parseInt(x);
+			set();
     	}
 	}
 	@Override
@@ -73,21 +100,47 @@ public class MainActivity extends Activity {
         return true;
     }
 	public void set(){
-		
-        if(rank==1)
-        	button5.setText("欢迎!");
-        else button5.setText("\n继续\n下一关");
-        button5.setGravity(Gravity.CENTER);
-        button5.setTextSize(20);
+		switch (rank) {
+		case 0:
+			button5.setText("欢迎!");
+			targetTextView.setText("幸福");
+	        stepTextView.setText("0");
+	        rankTextView.setText(">_<");
+	        answerTextView.setText("幸福就是\n猫吃鱼狗吃肉\n而你在我身侧");
+	        answerTextView.setTextSize(27);
+			break;
+		case 1:
+			button5.setText("Come on!");
+			targetTextView.setText("");
+	        stepTextView.setText("");
+	        rankTextView.setText("等级:0");
+	        answerTextView.setText("第一关来啦");
+	        answerTextView.setTextSize(40);
+			break;
+		case 2:
+			targetTextView.setText("");
+	        stepTextView.setText("");
+	        rankTextView.setText("等级:1");
+	        answerTextView.setText("不错!\n第二关来啦");
+	        answerTextView.setTextSize(40);
+	        button5.setText("继续游戏");
+	        break;
+		case 999:
+			button5.setText("哇!心态崩了!\n再教你一遍~~~");
+			button5.setTextSize(30);
+			rank=0;
+			break;
+		default:
+			button5.setText("继续游戏");
+			break;
+		}
+        //button5.setGravity(Gravity.TOP);
         int co=getResources().getColor(R.color.black);
-        button5.setTextColor(co);
-        button5.setBackground(getResources().getDrawable(R.drawable.green));
+		button5.setTextSize(20);
+		button5.setTextColor(co);
+		button5.setBackground(getResources().getDrawable(R.drawable.greenbutton));
         
-        targetTextView.setText("幸福");
-        stepTextView.setText("0");
-        rankTextView.setText(">_<");
-        answerTextView.setText("幸福就是\n猫吃鱼狗吃肉\n而你在我身侧");
-        answerTextView.setTextSize(27);
+        
         
 	}
     

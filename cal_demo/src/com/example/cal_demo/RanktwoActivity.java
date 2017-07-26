@@ -1,6 +1,5 @@
 package com.example.cal_demo;
 
-
 import android.os.Bundle;
 import android.R.integer;
 import android.R.string;
@@ -17,12 +16,13 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class RankoneActivity extends Activity {
+@SuppressLint("ServiceCast") 
+public class RanktwoActivity extends Activity {
 
 	int rank_num;
 	String x;
-	int target=2;
-	int step=2;
+	int target=8;
+	int step=3;
 	int begin=0;
 	String targetString;
 	String stepString;
@@ -74,7 +74,28 @@ public class RankoneActivity extends Activity {
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
 				if(step>0){
-					begin++;
+					begin+=2;
+					step--;
+					update(step, target, begin);
+					if(step==0&&begin==target){
+						Toast.makeText(getApplicationContext(), "你好厉害呀~~~",Toast.LENGTH_SHORT).show();
+						button3.setBackground(getResources().getDrawable(R.drawable.okbutton));
+					}
+				}
+				else{
+					//mVibrator = (VibratorUtil) getApplication().getSystemService(Service.VIBRATOR_SERVICE);
+					Toast.makeText(getApplicationContext(), "请重新开始，点击CLR",Toast.LENGTH_SHORT).show();
+				}
+			}
+		});
+		
+		button5.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				if(step>0){
+					begin+=3;
 					step--;
 					update(step, target, begin);
 					if(step==0&&begin==target){
@@ -97,7 +118,7 @@ public class RankoneActivity extends Activity {
 				if(step==0&&begin==target){
 					setend();
 				}
-				else update(2, 2, 0);
+				else update(3, 8, 0);
 			}
 		});
 		
@@ -123,15 +144,17 @@ public class RankoneActivity extends Activity {
 		int co=getResources().getColor(R.color.white);
 		rankTextView.setTextColor(co);
 		rankTextView.setTextSize(TypedValue.COMPLEX_UNIT_DIP,30);
-		rankTextView.setText("等级:1");
+		rankTextView.setText("等级:2");
 		
-		stepTextView.setText("2");
-		targetTextView.setText("2");
-		answerTextView.setText("0");
-		button2.setText("+1");
+		update(step, target, begin);
+		button2.setText("+2");
 		button2.setTextSize(40);
 		button2.setTextColor(co);
+		button5.setText("+3");
+		button5.setTextSize(40);
+		button5.setTextColor(co);
 		button2.setBackground(getResources().getDrawable(R.drawable.greybutton));
+		button5.setBackground(getResources().getDrawable(R.drawable.greybutton));
 		button3.setBackground(getResources().getDrawable(R.drawable.redbutton));
 		button7.setBackground(getResources().getDrawable(R.drawable.yellowbutton));
 		button1.setBackground(getResources().getDrawable(R.drawable.bluebutton));
