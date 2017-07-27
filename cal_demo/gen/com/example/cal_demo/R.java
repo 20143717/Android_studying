@@ -44,15 +44,20 @@ public final class R {
         public static final int okbutton=0x7f02000a;
         public static final int orange=0x7f02000b;
         public static final int orangebutton=0x7f02000c;
-        public static final int purple=0x7f02000d;
-        public static final int purplebutton=0x7f02000e;
-        public static final int red=0x7f02000f;
-        public static final int red2=0x7f020010;
-        public static final int redbutton=0x7f020011;
-        public static final int shadow=0x7f020012;
-        public static final int shot=0x7f020013;
-        public static final int yellow=0x7f020014;
-        public static final int yellowbutton=0x7f020015;
+        public static final int plus=0x7f02000d;
+        public static final int plusbutton=0x7f02000e;
+        public static final int purple=0x7f02000f;
+        public static final int purplebutton=0x7f020010;
+        public static final int rank=0x7f020011;
+        public static final int red=0x7f020012;
+        public static final int red2=0x7f020013;
+        public static final int redbutton=0x7f020014;
+        public static final int shadow=0x7f020015;
+        public static final int shot=0x7f020016;
+        public static final int sub=0x7f020017;
+        public static final int subbutton=0x7f020018;
+        public static final int yellow=0x7f020019;
+        public static final int yellowbutton=0x7f02001a;
     }
     public static final class id {
         public static final int action_settings=0x7f09000e;

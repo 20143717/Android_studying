@@ -136,7 +136,7 @@ public class Rank2Activity extends Activity {
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
-				
+				settings();
 			}
 		});
 	}
@@ -191,5 +191,13 @@ public class Rank2Activity extends Activity {
 		mVibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
 		mVibrator.vibrate(1000);
 		Toast.makeText(getApplicationContext(), "请重新开始，点击CLR",Toast.LENGTH_SHORT).show();
+	}
+	public void settings(){
+		Intent intent = new Intent();
+		x=Integer.toString(rank_num);
+		intent.putExtra("num",x);
+		intent.putExtra("setting", true);
+		setResult(resultCode , intent);
+		finish();
 	}
 }

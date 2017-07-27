@@ -10,6 +10,7 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -165,7 +166,7 @@ public class Rank10Activity extends Activity {
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
-				
+				settings();
 			}
 		});
 	}
@@ -183,7 +184,6 @@ public class Rank10Activity extends Activity {
 		rankTextView.setTextColor(co);
 		rankTextView.setTextSize(TypedValue.COMPLEX_UNIT_DIP,30);
 		rankTextView.setText("µÈ¼¶:"+x);
-		
 		update(step, target, begin);
 		button2.setText("1");
 		button2.setTextSize(40);
@@ -218,6 +218,14 @@ public class Rank10Activity extends Activity {
 		Intent intent = new Intent();
 		x=Integer.toString(rank_num);
 		intent.putExtra("num",x);
+		setResult(resultCode , intent);
+		finish();
+	}
+	public void settings(){
+		Intent intent = new Intent();
+		x=Integer.toString(rank_num);
+		intent.putExtra("num",x);
+		intent.putExtra("setting", true);
 		setResult(resultCode , intent);
 		finish();
 	}

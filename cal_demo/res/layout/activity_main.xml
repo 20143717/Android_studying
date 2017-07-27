@@ -76,7 +76,6 @@
 					android:layout_weight="1"
 					android:layout_marginLeft="2dp"
 		        	android:layout_marginRight="2dp"
-		        	android:layout_toRightOf="@id/one"
 					android:background="@drawable/button_shape"/>
 				<Button
 				    android:id="@+id/three"
@@ -85,7 +84,6 @@
 					android:layout_weight="1"
 					android:layout_marginLeft="2dp"
 		        	android:layout_marginRight="2dp"
-		        	android:layout_toRightOf="@id/two"
 					android:background="@drawable/button_shape"/>
 		    </LinearLayout>
 		    <LinearLayout
@@ -112,7 +110,6 @@
 			        android:layout_weight="1"
 			        android:layout_marginLeft="2dp"
 		        	android:layout_marginRight="2dp"
-		        	android:layout_toRightOf="@id/four"
 			        android:background="@drawable/button_shape"
 			        />
 			    <Button
@@ -122,7 +119,6 @@
 			        android:layout_weight="1"
 		   	 		android:layout_marginLeft="2dp"
 		        	android:layout_marginRight="2dp"
-		        	android:layout_toRightOf="@id/five"
 			        android:background="@drawable/button_shape"/>
 		    </LinearLayout>
 		    <LinearLayout
@@ -148,7 +144,6 @@
 		        android:layout_weight="1"
 		        android:layout_marginLeft="2dp"
 		        android:layout_marginRight="2dp"
-		        android:layout_toRightOf="@id/seven"
 		        android:background="@drawable/button_shape"/>
 		    <Button
 		        android:id="@+id/nine"
@@ -157,7 +152,6 @@
 		        android:layout_weight="1"
 		        android:layout_marginLeft="2dp"
 		        android:layout_marginRight="2dp"
-		        android:layout_toRightOf="@id/eight"
 		        android:background="@drawable/button_shape"/>
 		    </LinearLayout>
 		</LinearLayout>

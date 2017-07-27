@@ -10,6 +10,7 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -18,13 +19,15 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class Rank5Activity extends Activity {
+public class SettingActivity extends Activity {
 	
 	int rank_num;
+	int maxn;
 	String x;
-	int target=4;
-	int step=3;
-	int begin=4321;
+	String mm;
+	int target=9;
+	int step=4;
+	int begin=0;
 	String targetString;
 	String stepString;
 	String beginString;
@@ -47,7 +50,7 @@ public class Rank5Activity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_rank);
+		setContentView(R.layout.activity_main);
 
 		rankTextView=(TextView) findViewById(R.id.rank);
 		stepTextView=(TextView) findViewById(R.id.step);
@@ -66,45 +69,41 @@ public class Rank5Activity extends Activity {
 		
 		Bundle bundle=this.getIntent().getExtras();
 		x=bundle.getString("num");
+		mm=bundle.getString("maxn");
+		maxn=Integer.parseInt(mm);
 		rank_num=Integer.parseInt(x);
+		
 		set();
+
+		button4.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				if(rank_num>0){
+					rank_num--;
+					String k=Integer.toString(rank_num);
+					button5.setText("等级\n"+k);
+				}
+				else{
+					Toast.makeText(getApplicationContext(), "已经是第0关--游戏指南啦",Toast.LENGTH_SHORT).show();
+				}
+			}
+		});
 		
 		button6.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
-				if(step>0){
-					if(begin>9){
-						begin/=10;
-						step--;
-						update(step, target, begin);
-						if(step==0){
-							if(begin==target){
-								Toast.makeText(getApplicationContext(), "你好厉害呀~~~",Toast.LENGTH_SHORT).show();
-								button3.setBackground(getResources().getDrawable(R.drawable.okbutton));
-							}
-							else lose();
-						}
-					}
-					else Toast.makeText(getApplicationContext(), "这个操作不允许嗷!",Toast.LENGTH_SHORT).show();
+				if(rank_num<maxn){
+					rank_num++;
+					String k=Integer.toString(rank_num);
+					button5.setText("等级\n"+k);
 				}
 				else{
-					if(begin==target)
-						Toast.makeText(getApplicationContext(), "已经过关啦，请点击OK",Toast.LENGTH_SHORT).show();
-					else lose();
+					Toast.makeText(getApplicationContext(), "已经是您见过的最高关卡啦",Toast.LENGTH_SHORT).show();
 				}
-			}
-		});
-		button3.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
-				if(step==0&&begin==target){
-					setend();
-				}
-				else update(3, 4, 4321);
 			}
 		});
 		
@@ -113,7 +112,15 @@ public class Rank5Activity extends Activity {
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
-				settings();
+				setend();
+			}
+		});
+		
+		button8.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
 			}
 		});
 	}
@@ -121,7 +128,7 @@ public class Rank5Activity extends Activity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.rankone, menu);
+		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
 	
@@ -129,48 +136,26 @@ public class Rank5Activity extends Activity {
 	public void set(){
 		int co=getResources().getColor(R.color.white);
 		rankTextView.setTextColor(co);
-		rankTextView.setTextSize(TypedValue.COMPLEX_UNIT_DIP,30);
-		rankTextView.setText("等级:"+x);
-		
-		update(step, target, begin);
-		button6.setText("<<");
-		button6.setTextSize(40);
-		button6.setTextColor(co);
-		
-		button6.setBackground(getResources().getDrawable(R.drawable.orangebutton));
-		button3.setBackground(getResources().getDrawable(R.drawable.redbutton));
-		button7.setBackground(getResources().getDrawable(R.drawable.yellowbutton));
-		button1.setBackground(getResources().getDrawable(R.drawable.bluebutton));
-	}
-	public void update(int a,int b,int c){
-		step=a;
-		target=b;
-		begin=c;
-		stepString=Integer.toString(step);
-		targetString=Integer.toString(target);
-		beginString=Integer.toString(begin);
-		stepTextView.setText(stepString);
-		targetTextView.setText(targetString);
-		answerTextView.setText(beginString);
+		targetTextView.setText("");
+        stepTextView.setText("");
+        rankTextView.setText("设置");
+        answerTextView.setText("暂停");
+        answerTextView.setGravity(Gravity.CENTER);
+        answerTextView.setTextSize(80);
+        button7.setBackground(getResources().getDrawable(R.drawable.yellowbutton));
+        button4.setBackground(getResources().getDrawable(R.drawable.subbutton));
+        button5.setBackground(getResources().getDrawable(R.drawable.rank));
+        button6.setBackground(getResources().getDrawable(R.drawable.plusbutton));
+        button8.setBackground(getResources().getDrawable(R.drawable.bluebutton));
+        button5.setText("等级\n"+x);
+        button5.setGravity(Gravity.CENTER);
+        button5.setTextColor(co);
 	}
 	public void setend(){
-		rank_num++;
 		Intent intent = new Intent();
 		x=Integer.toString(rank_num);
+		intent.putExtra("setting",false);
 		intent.putExtra("num",x);
-		setResult(resultCode , intent);
-		finish();
-	}
-	public void lose(){
-		mVibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
-		mVibrator.vibrate(1000);
-		Toast.makeText(getApplicationContext(), "请重新开始，点击CLR",Toast.LENGTH_SHORT).show();
-	}
-	public void settings(){
-		Intent intent = new Intent();
-		x=Integer.toString(rank_num);
-		intent.putExtra("num",x);
-		intent.putExtra("setting", true);
 		setResult(resultCode , intent);
 		finish();
 	}

@@ -1,12 +1,24 @@
 package com.example.cal_demo;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
+import java.security.PublicKey;
+import java.util.StringTokenizer;
+
+import org.apache.http.util.EncodingUtils;
+
 import com.example.cal_demo.MainActivity;
 import com.example.cal_demo.Rank0Activity;
 
 import android.R.integer;
+import android.R.string;
+import android.location.SettingInjectorService;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.View;
@@ -17,9 +29,18 @@ import android.widget.TextView;
 public class MainActivity extends Activity {
     int rank=0;
     String x;
-    private int maxn;
-    private Button button5;
-    private Button button2;
+    boolean y=false;
+    private int maxn=0;
+    Button button1;
+	Button button2;
+	Button button3;
+	Button button4;
+	Button button5;
+	Button button6;
+	Button button7;
+	Button button8;
+	Button button9;
+    private SharedPreferences sp;
     TextView rankTextView;
 	TextView stepTextView;
 	TextView targetTextView;
@@ -29,19 +50,29 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         
-        button5 = (Button) findViewById(R.id.five);
-        button2 = (Button) findViewById(R.id.two);
+        button1=(Button) findViewById(R.id.one);
+		button2=(Button) findViewById(R.id.two);
+		button3=(Button) findViewById(R.id.three);
+		button4=(Button) findViewById(R.id.four);
+		button5=(Button) findViewById(R.id.five);
+		button6=(Button) findViewById(R.id.six);
+		button7=(Button) findViewById(R.id.seven);
+		button8=(Button) findViewById(R.id.eight);
+		button9=(Button) findViewById(R.id.nine);
+		
         rankTextView=(TextView) findViewById(R.id.rank);
 		stepTextView=(TextView) findViewById(R.id.step);
 		targetTextView=(TextView) findViewById(R.id.target);
 		answerTextView=(TextView) findViewById(R.id.answer);
+		read();
+		
         set();
         
         button5.setOnClickListener(new View.OnClickListener() {
-			
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
+				if(y==false){
 				switch (rank) {
 					case 0:
 						Intent intent0 = new Intent(MainActivity.this, Rank0Activity.class);
@@ -166,20 +197,32 @@ public class MainActivity extends Activity {
 					default:
 						break;
 				}
+				}
 			}
 		});
+        
     }
-    
     @Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		// TODO Auto-generated method stub
     	if(requestCode==resultCode){
     		Bundle bundle = data.getExtras();
 			x=bundle.getString("num");
+			y=bundle.getBoolean("setting");
 			rank = Integer.parseInt(x);
-			set();
+			if(y){
+				setting(x);
+			}
+			else{
+				if(rank<=100){
+					if(rank>maxn) maxn=rank;
+				}
+				set();
+				load(rank,maxn);
+			}
     	}
 	}
+    
 	@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -330,12 +373,48 @@ public class MainActivity extends Activity {
 			break;
 		}
         //button5.setGravity(Gravity.TOP);
-		if(rank!=997||rank!=998){
+		if(rank!=997||rank!=998||rank!=1000||rank!=999){
 	        int c=getResources().getColor(R.color.black);
 			button5.setTextSize(20);
 			button5.setTextColor(c);
 			button5.setBackground(getResources().getDrawable(R.drawable.greenbutton));
 		}
 	}
-    
+	public void load(int a,int b){
+		String rankString=Integer.toString(a);
+		String maxnString=Integer.toString(b);
+		sp.edit()
+			.putString("RANK",rankString)
+			.putString("MAXN",maxnString)
+			.commit();
+	}
+	public void read() {
+		sp = getSharedPreferences("data", MODE_PRIVATE);
+		rank = Integer.parseInt(sp.getString("RANK", "0"));
+		maxn = Integer.parseInt(sp.getString("MAXN", "0"));
+	}
+	public void setting(String k){
+		int co=getResources().getColor(R.color.white);
+		targetTextView.setText("");
+        stepTextView.setText("");
+        rankTextView.setText("…Ë÷√");
+        rankTextView.setTextColor(co);
+        answerTextView.setText("‘›Õ£");
+        answerTextView.setGravity(Gravity.CENTER);
+        answerTextView.setTextSize(80);
+        button7.setBackground(getResources().getDrawable(R.drawable.shadow));
+        button4.setBackground(getResources().getDrawable(R.drawable.shadow));
+        button6.setBackground(getResources().getDrawable(R.drawable.shadow));
+        button8.setBackground(getResources().getDrawable(R.drawable.shadow));
+        button5.setText("µ»º∂\n"+k);
+        button5.setGravity(Gravity.CENTER);
+        button5.setTextColor(co);
+        Intent intent = new Intent(MainActivity.this, SettingActivity.class);
+    	String mm=Integer.toString(maxn);
+		Bundle bundle=new Bundle();
+		bundle.putString("num",x);
+		bundle.putString("maxn",mm);
+		intent.putExtras(bundle);
+		startActivityForResult(intent, 1);
+	}
 }

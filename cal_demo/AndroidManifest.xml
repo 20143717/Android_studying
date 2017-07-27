@@ -83,6 +83,10 @@
             android:name="com.example.cal_demo.Rank12Activity"
             android:label="@string/title_activity_rankone" >
         </activity>
+        <activity
+            android:name="com.example.cal_demo.SettingActivity"
+            android:label="@string/title_activity_rankone" >
+        </activity>
     </application>
     
 
