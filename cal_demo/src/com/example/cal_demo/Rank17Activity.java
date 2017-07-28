@@ -78,12 +78,16 @@ public class Rank17Activity extends Activity {
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
 				if(step>0){
-					begin=begin/3;
-					step--;
-					update(step, target, begin);
-					if(step==0){
-						if(begin==target) win();
-						else lose();
+					if(begin%3!=0)
+						Toast.makeText(getApplicationContext(), "这个操作不允许嗷!",Toast.LENGTH_SHORT).show();
+					else{
+						begin=begin/3;
+						step--;
+						update(step, target, begin);
+						if(step==0){
+							if(begin==target) win();
+							else lose();
+						}
 					}
 				}
 				else{

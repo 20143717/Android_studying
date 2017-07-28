@@ -192,6 +192,46 @@ public class MainActivity extends Activity {
 						intent995.putExtras(bundle);
 						startActivityForResult(intent995,1);
 						break;
+					case 19:
+						Intent intent19 = new Intent(MainActivity.this, Rank19Activity.class);
+						intent19.putExtras(bundle);
+						startActivityForResult(intent19,1);
+						break;
+					case 20:
+						Intent intent20 = new Intent(MainActivity.this, Rank20Activity.class);
+						intent20.putExtras(bundle);
+						startActivityForResult(intent20,1);
+						break;
+					case 21:
+						Intent intent21 = new Intent(MainActivity.this, Rank21Activity.class);
+						intent21.putExtras(bundle);
+						startActivityForResult(intent21,1);
+						break;
+					case 22:
+						Intent intent22 = new Intent(MainActivity.this, Rank22Activity.class);
+						intent22.putExtras(bundle);
+						startActivityForResult(intent22,1);
+						break;
+					case 23:
+						Intent intent23 = new Intent(MainActivity.this, Rank23Activity.class);
+						intent23.putExtras(bundle);
+						startActivityForResult(intent23,1);
+						break;
+					case 24:
+						Intent intent24 = new Intent(MainActivity.this, Rank24Activity.class);
+						intent24.putExtras(bundle);
+						startActivityForResult(intent24,1);
+						break;
+					case 25:
+						Intent intent25 = new Intent(MainActivity.this, Rank25Activity.class);
+						intent25.putExtras(bundle);
+						startActivityForResult(intent25,1);
+						break;
+					case 26:
+						Intent intent26= new Intent(MainActivity.this, Rank26Activity.class);
+						intent26.putExtras(bundle);
+						startActivityForResult(intent26,1);
+						break;
 					default:
 						break;
 				}
@@ -229,6 +269,14 @@ public class MainActivity extends Activity {
     }
 	public void set(){
 		int co=getResources().getColor(R.color.white);
+		x=Integer.toString(rank);
+		String nn=Integer.toString(rank-1);
+		targetTextView.setText("");
+        stepTextView.setText("");
+        rankTextView.setText("等级:"+nn);
+        answerTextView.setText("不错哟~\n第"+x+"关来啦");
+        answerTextView.setTextSize(40);
+        button5.setText("继续游戏");
 		switch (rank) {
 		case 0:
 			button5.setText("欢迎!");
@@ -238,43 +286,14 @@ public class MainActivity extends Activity {
 	        answerTextView.setText("幸福就是\n猫吃鱼狗吃肉\n而你在我身侧");
 	        answerTextView.setTextSize(27);
 			break;
-		case 1:
-			button5.setText("Come on!");
-			targetTextView.setText("");
-	        stepTextView.setText("");
-	        rankTextView.setText("等级:0");
-	        answerTextView.setText("第一关来啦");
-	        answerTextView.setTextSize(40);
-			break;
 		case 2:
-			targetTextView.setText("");
-	        stepTextView.setText("");
-	        rankTextView.setText("等级:1");
 	        answerTextView.setText("不错!\n第二关来啦");
-	        answerTextView.setTextSize(40);
-	        button5.setText("继续游戏");
 	        break;
 		case 999:
 			button5.setText("哇!\n心态崩了!\n再来一遍!");
 			button5.setTextSize(30);
 			rank=0;
 			break;
-		case 3:
-			targetTextView.setText("");
-	        stepTextView.setText("");
-	        rankTextView.setText("等级:2");
-	        answerTextView.setText("不错!\n第3关来啦");
-	        answerTextView.setTextSize(40);
-	        button5.setText("继续游戏");
-	        break;
-		case 4:
-			targetTextView.setText("");
-	        stepTextView.setText("");
-	        rankTextView.setText("等级:3");
-	        answerTextView.setText("不错!\n第4关来啦");
-	        answerTextView.setTextSize(40);
-	        button5.setText("继续游戏");
-	        break;
 		case 998:
 			targetTextView.setText("");
 	        stepTextView.setText("");
@@ -349,14 +368,6 @@ public class MainActivity extends Activity {
 	        answerTextView.setTextSize(40);
 	        button5.setText("继续游戏");
 			break;
-		case 12:
-			targetTextView.setText("");
-	        stepTextView.setText("");
-	        rankTextView.setText("等级:11");
-	        answerTextView.setText("继续努力!\n第12关来啦");
-	        answerTextView.setTextSize(40);
-	        button5.setText("继续游戏");
-			break;
 		case 13:
 			targetTextView.setText("");
 	        stepTextView.setText("");
@@ -374,46 +385,6 @@ public class MainActivity extends Activity {
 	        button5.setText("怎么啦?!");
 	        button5.setTextColor(co);
 			break;
-		case 14:
-			targetTextView.setText("");
-	        stepTextView.setText("");
-	        rankTextView.setText("等级:13");
-	        answerTextView.setText("继续努力!\n第14关来啦");
-	        answerTextView.setTextSize(40);
-	        button5.setText("继续游戏");
-			break;
-		case 15:
-			targetTextView.setText("");
-	        stepTextView.setText("");
-	        rankTextView.setText("等级:14");
-	        answerTextView.setText("继续努力!\n第15关来啦");
-	        answerTextView.setTextSize(40);
-	        button5.setText("继续游戏");
-			break;
-		case 16:
-			targetTextView.setText("");
-	        stepTextView.setText("");
-	        rankTextView.setText("等级:15");
-	        answerTextView.setText("继续努力!\n第16关来啦");
-	        answerTextView.setTextSize(40);
-	        button5.setText("继续游戏");
-			break;
-		case 17:
-			targetTextView.setText("");
-	        stepTextView.setText("");
-	        rankTextView.setText("等级:16");
-	        answerTextView.setText("继续努力!\n第17关来啦");
-	        answerTextView.setTextSize(40);
-	        button5.setText("继续游戏");
-			break;
-		case 18:
-			targetTextView.setText("");
-	        stepTextView.setText("");
-	        rankTextView.setText("等级:17");
-	        answerTextView.setText("继续努力!\n第18关来啦");
-	        answerTextView.setTextSize(40);
-	        button5.setText("继续游戏");
-			break;
 		case 995:
 			targetTextView.setText("");
 	        stepTextView.setText("");
@@ -422,6 +393,14 @@ public class MainActivity extends Activity {
 	        answerTextView.setTextSize(40);
 	        button5.setText("???");
 	        button5.setTextColor(co);
+			break;
+		case 19:
+			targetTextView.setText("");
+	        stepTextView.setText("");
+	        rankTextView.setText("等级:18");
+	        answerTextView.setText("尝试新按钮\n第19关来啦");
+	        answerTextView.setTextSize(40);
+	        button5.setText("继续游戏");
 			break;
 		case 27:
 			targetTextView.setText("");
@@ -432,8 +411,6 @@ public class MainActivity extends Activity {
 	        button5.setText("Thanks!");
 	        break;
 		default:
-			answerTextView.setText("暂停!");
-			button5.setText("继续游戏");
 			break;
 		}
         //button5.setGravity(Gravity.TOP);

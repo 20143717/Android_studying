@@ -112,7 +112,7 @@ public class Rank995Activity extends Activity {
 		button5.setText("好的!");
 		
 	}
-	public void setthree(){
+	public void setthree(){	
 		answerTextView.setText("我们先控制\n这些数字……");
 		answerTextView.setTextSize(40);
 		button5.setText("……");
@@ -123,7 +123,7 @@ public class Rank995Activity extends Activity {
 		button5.setText("哈哈!好!");
 	}
 	public void setend(){
-		rank_num=0;
+		rank_num=19;
 		Intent intent = new Intent();
 		x=Integer.toString(rank_num);
 		intent.putExtra("num",x);

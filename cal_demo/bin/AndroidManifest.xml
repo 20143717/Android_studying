@@ -119,6 +119,38 @@
             android:name="com.example.cal_demo.Rank18Activity"
             android:label="@string/title_activity_rankone" >
         </activity>
+        <activity
+            android:name="com.example.cal_demo.Rank19Activity"
+            android:label="@string/title_activity_rankone" >
+        </activity>
+        <activity
+            android:name="com.example.cal_demo.Rank20Activity"
+            android:label="@string/title_activity_rankone" >
+        </activity>
+        <activity
+            android:name="com.example.cal_demo.Rank21Activity"
+            android:label="@string/title_activity_rankone" >
+        </activity>
+        <activity
+            android:name="com.example.cal_demo.Rank22Activity"
+            android:label="@string/title_activity_rankone" >
+        </activity>
+        <activity
+            android:name="com.example.cal_demo.Rank23Activity"
+            android:label="@string/title_activity_rankone" >
+        </activity>
+        <activity
+            android:name="com.example.cal_demo.Rank24Activity"
+            android:label="@string/title_activity_rankone" >
+        </activity>
+        <activity
+            android:name="com.example.cal_demo.Rank25Activity"
+            android:label="@string/title_activity_rankone" >
+        </activity>
+        <activity
+            android:name="com.example.cal_demo.Rank26Activity"
+            android:label="@string/title_activity_rankone" >
+        </activity>
     </application>
     
 
