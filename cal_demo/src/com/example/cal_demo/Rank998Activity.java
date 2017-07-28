@@ -39,7 +39,7 @@ public class Rank998Activity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_rank);
+		setContentView(R.layout.activity_main);
 
 		rankTextView=(TextView) findViewById(R.id.rank);
 		stepTextView=(TextView) findViewById(R.id.step);
@@ -87,7 +87,7 @@ public class Rank998Activity extends Activity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.rankone, menu);
+		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
 	
@@ -115,7 +115,7 @@ public class Rank998Activity extends Activity {
 		button2.setTextSize(40);
 	}
 	public void setthree(){
-		answerTextView.setText("它会从总数中\n删除一个数字");
+		answerTextView.setText("它会删除总数中\n最后一个数字");
 		answerTextView.setTextSize(40);
 		button5.setText("真棒!");
 	}

@@ -1,5 +1,8 @@
 package com.example.cal_demo;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.R.integer;
@@ -44,7 +47,7 @@ public class Rank10Activity extends Activity {
 	Button button9;
 	private Vibrator mVibrator;
 	private int resultCode=1;
-	
+	private int col=0;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -80,10 +83,7 @@ public class Rank10Activity extends Activity {
 					step--;
 					update(step, target, begin);
 					if(step==0){
-						if(begin==target){
-							Toast.makeText(getApplicationContext(), "ÄãºÃÀ÷º¦Ñ½~~~",Toast.LENGTH_SHORT).show();
-							button3.setBackground(getResources().getDrawable(R.drawable.okbutton));
-						}
+						if(begin==target) win();
 						else lose();
 					}
 				}
@@ -108,10 +108,7 @@ public class Rank10Activity extends Activity {
 						step--;
 						update(step, target, begin);
 						if(step==0){
-							if(begin==target){
-								Toast.makeText(getApplicationContext(), "ÄãºÃÀ÷º¦Ñ½~~~",Toast.LENGTH_SHORT).show();
-								button3.setBackground(getResources().getDrawable(R.drawable.okbutton));
-							}
+							if(begin==target) win();
 							else lose();
 						}
 					}
@@ -134,10 +131,7 @@ public class Rank10Activity extends Activity {
 					step--;
 					update(step, target, begin);
 					if(step==0){
-						if(begin==target){
-							Toast.makeText(getApplicationContext(), "ÄãºÃÀ÷º¦Ñ½~~~",Toast.LENGTH_SHORT).show();
-							button3.setBackground(getResources().getDrawable(R.drawable.okbutton));
-						}
+						if(begin==target) win();
 						else lose();
 					}
 				}
@@ -166,7 +160,7 @@ public class Rank10Activity extends Activity {
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
-				settings();
+				if(begin!=target) settings();
 			}
 		});
 	}
@@ -188,7 +182,7 @@ public class Rank10Activity extends Activity {
 		button2.setText("1");
 		button2.setTextSize(40);
 		button2.setTextColor(co);
-		button5.setText("\\3");
+		button5.setText("/3");
 		button5.setTextSize(40);
 		button5.setTextColor(co);
 		button8.setText("+2");
@@ -233,5 +227,38 @@ public class Rank10Activity extends Activity {
 		mVibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
 		mVibrator.vibrate(1000);
 		Toast.makeText(getApplicationContext(), "ÇëÖØÐÂ¿ªÊ¼£¬µã»÷CLR",Toast.LENGTH_SHORT).show();
+	}
+	public void win(){
+		Toast.makeText(getApplicationContext(), "ÄãºÃÀ÷º¦Ñ½~~~",Toast.LENGTH_SHORT).show();
+		button3.setBackground(getResources().getDrawable(R.drawable.okbutton));
+		button1.setBackground(getResources().getDrawable(R.drawable.shadow));
+		button7.setBackground(getResources().getDrawable(R.drawable.shadow));
+		spark();
+	}
+	public void spark(){
+		Timer timer=new Timer();
+		TimerTask task = new TimerTask() {
+			
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				runOnUiThread(new Runnable() {
+					
+					@Override
+					public void run() {
+						// TODO Auto-generated method stub
+						if(col==0){
+							answerTextView.setText("Ó®µÃ");
+							col=1;
+						}
+						else if(col==1){
+							answerTextView.setText(targetString);
+							col=0;
+						}
+					}
+				});
+			}
+		};
+		timer.schedule(task, 1 , 1000);
 	}
 }

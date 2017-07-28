@@ -134,6 +134,10 @@ public class SettingActivity extends Activity {
 	
 	
 	public void set(){
+		Intent intent = new Intent();
+		x=Integer.toString(rank_num);
+		intent.putExtra("num",x);
+		setResult(resultCode , intent);
 		int co=getResources().getColor(R.color.white);
 		rankTextView.setTextColor(co);
 		targetTextView.setText("");

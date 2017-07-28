@@ -73,126 +73,124 @@ public class MainActivity extends Activity {
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
 				if(y==false){
+					x=Integer.toString(rank);
+					Bundle bundle=new Bundle();
+					bundle.putString("num",x);
 				switch (rank) {
 					case 0:
-						Intent intent0 = new Intent(MainActivity.this, Rank0Activity.class);
-						Bundle bundle0=new Bundle();
-						x=Integer.toString(rank);
-						bundle0.putString("num",x);
-						intent0.putExtras(bundle0);
-						startActivityForResult(intent0, 1);
+						Intent intent = new Intent(MainActivity.this, Rank0Activity.class);
+						intent.putExtras(bundle);
+						startActivityForResult(intent, 1);
 						break;
 					case 1:
 						Intent intent1 = new Intent(MainActivity.this, Rank1Activity.class);
-						Bundle bundle1=new Bundle();
-						x=Integer.toString(rank);
-						bundle1.putString("num",x);
-						intent1.putExtras(bundle1);
+						intent1.putExtras(bundle);
 						startActivityForResult(intent1,1);
 						break;
 					case 2:
 						Intent intent2 = new Intent(MainActivity.this, Rank2Activity.class);
-						Bundle bundle2=new Bundle();
-						x=Integer.toString(rank);
-						bundle2.putString("num",x);
-						intent2.putExtras(bundle2);
+						intent2.putExtras(bundle);
 						startActivityForResult(intent2,1);
 						break;
 					case 3:
 						Intent intent3 = new Intent(MainActivity.this, Rank3Activity.class);
-						Bundle bundle3=new Bundle();
-						x=Integer.toString(rank);
-						bundle3.putString("num",x);
-						intent3.putExtras(bundle3);
+						intent3.putExtras(bundle);
 						startActivityForResult(intent3,1);
 						break;
 					case 4:
 						Intent intent4 = new Intent(MainActivity.this, Rank4Activity.class);
-						Bundle bundle4=new Bundle();
-						x=Integer.toString(rank);
-						bundle4.putString("num",x);
-						intent4.putExtras(bundle4);
+						intent4.putExtras(bundle);
 						startActivityForResult(intent4,1);
 						break;
 					case 998:
 						Intent intent998 = new Intent(MainActivity.this, Rank998Activity.class);
-						Bundle bundle998 = new Bundle();
-						x=Integer.toString(rank);
-						bundle998.putString("num",x);
-						intent998.putExtras(bundle998);
+						intent998.putExtras(bundle);
 						startActivityForResult(intent998,1);
 						break;
 					case 5:
 						Intent intent5 = new Intent(MainActivity.this, Rank5Activity.class);
-						Bundle bundle5=new Bundle();
-						x=Integer.toString(rank);
-						bundle5.putString("num",x);
-						intent5.putExtras(bundle5);
+						intent5.putExtras(bundle);
 						startActivityForResult(intent5,1);
 						break;
 					case 6:
 						Intent intent6 = new Intent(MainActivity.this, Rank6Activity.class);
-						Bundle bundle6=new Bundle();
-						x=Integer.toString(rank);
-						bundle6.putString("num",x);
-						intent6.putExtras(bundle6);
+						intent6.putExtras(bundle);
 						startActivityForResult(intent6,1);
 						break;
 					case 7:
 						Intent intent7 = new Intent(MainActivity.this, Rank7Activity.class);
-						Bundle bundle7=new Bundle();
-						x=Integer.toString(rank);
-						bundle7.putString("num",x);
-						intent7.putExtras(bundle7);
+						intent7.putExtras(bundle);
 						startActivityForResult(intent7,1);
 						break;
 					case 8:
 						Intent intent8 = new Intent(MainActivity.this, Rank8Activity.class);
-						Bundle bundle8=new Bundle();
-						x=Integer.toString(rank);
-						bundle8.putString("num",x);
-						intent8.putExtras(bundle8);
+						intent8.putExtras(bundle);
 						startActivityForResult(intent8,1);
 						break;
 					case 997:
 						Intent intent997 = new Intent(MainActivity.this, Rank997Activity.class);
-						Bundle bundle997=new Bundle();
-						x=Integer.toString(rank);
-						bundle997.putString("num",x);
-						intent997.putExtras(bundle997);
+						intent997.putExtras(bundle);
 						startActivityForResult(intent997,1);
 						break;
 					case 9:
 						Intent intent9 = new Intent(MainActivity.this, Rank9Activity.class);
-						Bundle bundle9=new Bundle();
-						x=Integer.toString(rank);
-						bundle9.putString("num",x);
-						intent9.putExtras(bundle9);
+						intent9.putExtras(bundle);
 						startActivityForResult(intent9,1);
 						break;
 					case 10:
 						Intent intent10 = new Intent(MainActivity.this, Rank10Activity.class);
-						Bundle bundle10=new Bundle();
-						x=Integer.toString(rank);
-						bundle10.putString("num",x);
-						intent10.putExtras(bundle10);
+						intent10.putExtras(bundle);
 						startActivityForResult(intent10,1);
 						break;
 					case 11:
 						Intent intent11 = new Intent(MainActivity.this, Rank11Activity.class);
-						Bundle bundle11=new Bundle();
-						x=Integer.toString(rank);
-						bundle11.putString("num",x);
-						intent11.putExtras(bundle11);
+						intent11.putExtras(bundle);
 						startActivityForResult(intent11,1);
 						break;
 					case 12:
 						Intent intent12 = new Intent(MainActivity.this, Rank12Activity.class);
-						Bundle bundle12=new Bundle();
-						x=Integer.toString(rank);
-						bundle12.putString("num",x);
-						intent12.putExtras(bundle12);
+						intent12.putExtras(bundle);
 						startActivityForResult(intent12,1);
+						break;
+					case 996:
+						Intent intent996 = new Intent(MainActivity.this, Rank996Activity.class);
+						intent996.putExtras(bundle);
+						startActivityForResult(intent996,1);
+						break;
+					case 13:
+						Intent intent13 = new Intent(MainActivity.this, Rank13Activity.class);
+						intent13.putExtras(bundle);
+						startActivityForResult(intent13,1);
+						break;
+					case 14:
+						Intent intent14 = new Intent(MainActivity.this, Rank14Activity.class);
+						intent14.putExtras(bundle);
+						startActivityForResult(intent14,1);
+						break;
+					case 15:
+						Intent intent15 = new Intent(MainActivity.this, Rank15Activity.class);
+						intent15.putExtras(bundle);
+						startActivityForResult(intent15,1);
+						break;
+					case 16:
+						Intent intent16 = new Intent(MainActivity.this, Rank16Activity.class);
+						intent16.putExtras(bundle);
+						startActivityForResult(intent16,1);
+						break;
+					case 17:
+						Intent intent17 = new Intent(MainActivity.this, Rank17Activity.class);
+						intent17.putExtras(bundle);
+						startActivityForResult(intent17,1);
+						break;
+					case 18:
+						Intent intent18 = new Intent(MainActivity.this, Rank18Activity.class);
+						intent18.putExtras(bundle);
+						startActivityForResult(intent18,1);
+						break;
+					case 995:
+						Intent intent995 = new Intent(MainActivity.this, Rank995Activity.class);
+						intent995.putExtras(bundle);
+						startActivityForResult(intent995,1);
 						break;
 					default:
 						break;
@@ -363,6 +361,72 @@ public class MainActivity extends Activity {
 			targetTextView.setText("");
 	        stepTextView.setText("");
 	        rankTextView.setText("等级:12");
+	        answerTextView.setText("试试新按钮\n第13关!");
+	        answerTextView.setTextSize(40);
+	        button5.setText("好的");
+	        break;	
+		case 996:
+			targetTextView.setText("");
+	        stepTextView.setText("");
+	        rankTextView.setText("游戏指南");
+	        answerTextView.setText("等等……");
+	        answerTextView.setTextSize(60);
+	        button5.setText("怎么啦?!");
+	        button5.setTextColor(co);
+			break;
+		case 14:
+			targetTextView.setText("");
+	        stepTextView.setText("");
+	        rankTextView.setText("等级:13");
+	        answerTextView.setText("继续努力!\n第14关来啦");
+	        answerTextView.setTextSize(40);
+	        button5.setText("继续游戏");
+			break;
+		case 15:
+			targetTextView.setText("");
+	        stepTextView.setText("");
+	        rankTextView.setText("等级:14");
+	        answerTextView.setText("继续努力!\n第15关来啦");
+	        answerTextView.setTextSize(40);
+	        button5.setText("继续游戏");
+			break;
+		case 16:
+			targetTextView.setText("");
+	        stepTextView.setText("");
+	        rankTextView.setText("等级:15");
+	        answerTextView.setText("继续努力!\n第16关来啦");
+	        answerTextView.setTextSize(40);
+	        button5.setText("继续游戏");
+			break;
+		case 17:
+			targetTextView.setText("");
+	        stepTextView.setText("");
+	        rankTextView.setText("等级:16");
+	        answerTextView.setText("继续努力!\n第17关来啦");
+	        answerTextView.setTextSize(40);
+	        button5.setText("继续游戏");
+			break;
+		case 18:
+			targetTextView.setText("");
+	        stepTextView.setText("");
+	        rankTextView.setText("等级:17");
+	        answerTextView.setText("继续努力!\n第18关来啦");
+	        answerTextView.setTextSize(40);
+	        button5.setText("继续游戏");
+			break;
+		case 995:
+			targetTextView.setText("");
+	        stepTextView.setText("");
+	        rankTextView.setText("游戏指南");
+	        answerTextView.setText("哇偶!\n意想不到的发现");
+	        answerTextView.setTextSize(40);
+	        button5.setText("???");
+	        button5.setTextColor(co);
+			break;
+		case 27:
+			targetTextView.setText("");
+	        stepTextView.setText("");
+	        rankTextView.setText("等级:26");
 	        answerTextView.setText("恭喜你通关啦!\n完结~~撒花~~~");
 	        answerTextView.setTextSize(40);
 	        button5.setText("Thanks!");
@@ -373,7 +437,7 @@ public class MainActivity extends Activity {
 			break;
 		}
         //button5.setGravity(Gravity.TOP);
-		if(rank!=997||rank!=998||rank!=1000||rank!=999){
+		if(rank!=997||rank!=998||rank!=1000||rank!=999||rank!=996||rank!=995){
 	        int c=getResources().getColor(R.color.black);
 			button5.setTextSize(20);
 			button5.setTextColor(c);
