@@ -3,6 +3,7 @@ package com.example.cal_demo;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.PrintStream;
 import java.security.PublicKey;
 import java.util.StringTokenizer;
@@ -15,6 +16,9 @@ import com.example.cal_demo.Rank0Activity;
 import android.R.integer;
 import android.R.string;
 import android.location.SettingInjectorService;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
+import android.media.SoundPool;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -30,7 +34,12 @@ public class MainActivity extends Activity {
     int rank=0;
     String x;
     boolean y=false;
+    private MediaPlayer mp;
+	private AudioManager am;
+    private int current;
     private int maxn=0;
+    private static SoundPool mSoundPool = new SoundPool(1, AudioManager.STREAM_MUSIC, 0);
+    private int[] soundIds = {-1,-1,-1,-1,-1};
     Button button1;
 	Button button2;
 	Button button3;
@@ -66,6 +75,7 @@ public class MainActivity extends Activity {
 		answerTextView=(TextView) findViewById(R.id.answer);
 		read();
 		
+		playVoice();
         set();
         
         button5.setOnClickListener(new View.OnClickListener() {
@@ -247,6 +257,7 @@ public class MainActivity extends Activity {
     		Bundle bundle = data.getExtras();
 			x=bundle.getString("num");
 			y=bundle.getBoolean("setting");
+			
 			rank = Integer.parseInt(x);
 			if(y){
 				setting(x);
@@ -256,7 +267,7 @@ public class MainActivity extends Activity {
 					if(rank>maxn) maxn=rank;
 				}
 				set();
-				load(rank,maxn);
+				load(rank,maxn,current);
 			}
     	}
 	}
@@ -407,8 +418,9 @@ public class MainActivity extends Activity {
 	        stepTextView.setText("");
 	        rankTextView.setText("等级:26");
 	        answerTextView.setText("恭喜你通关啦!\n完结~~撒花~~~");
-	        answerTextView.setTextSize(40);
+	        answerTextView.setTextSize(30);
 	        button5.setText("Thanks!");
+	        rank=0;
 	        break;
 		default:
 			break;
@@ -421,18 +433,21 @@ public class MainActivity extends Activity {
 			button5.setBackground(getResources().getDrawable(R.drawable.greenbutton));
 		}
 	}
-	public void load(int a,int b){
+	public void load(int a,int b,int c){
 		String rankString=Integer.toString(a);
 		String maxnString=Integer.toString(b);
+		String musicString=Integer.toString(c);
 		sp.edit()
 			.putString("RANK",rankString)
 			.putString("MAXN",maxnString)
+			.putString("MUSIC", musicString)
 			.commit();
 	}
 	public void read() {
 		sp = getSharedPreferences("data", MODE_PRIVATE);
 		rank = Integer.parseInt(sp.getString("RANK", "0"));
 		maxn = Integer.parseInt(sp.getString("MAXN", "0"));
+		current = Integer.parseInt(sp.getString("MUSIC", "0"));
 	}
 	public void setting(String k){
 		int co=getResources().getColor(R.color.white);
@@ -455,7 +470,32 @@ public class MainActivity extends Activity {
 		Bundle bundle=new Bundle();
 		bundle.putString("num",x);
 		bundle.putString("maxn",mm);
+		bundle.putInt("music", current);
 		intent.putExtras(bundle);
 		startActivityForResult(intent, 1);
 	}
+	public void onDestroy(){
+		mp.stop();
+		mp.release();
+		load(rank,maxn,current);
+		super.onDestroy();
+	}
+	public void playVoice(){
+		mp=new MediaPlayer();
+		mp.setLooping(true);
+		try {
+			mp=MediaPlayer.create(MainActivity.this, R.raw.rain);
+			mp.prepare();
+		} catch (IllegalArgumentException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} catch (IllegalStateException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		mp.start();
+    }
 }

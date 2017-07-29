@@ -1,21 +1,30 @@
 package com.example.cal_demo;
 
+import java.io.IOException;
+import java.util.ArrayList;
+
+import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.R.integer;
 import android.R.string;
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.util.TypedValue;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +34,7 @@ public class SettingActivity extends Activity {
 	int maxn;
 	String x;
 	String mm;
+	String nn;
 	int target=9;
 	int step=4;
 	int begin=0;
@@ -46,6 +56,11 @@ public class SettingActivity extends Activity {
 	Button button9;
 	private Vibrator mVibrator;
 	private int resultCode=1;
+	private MediaPlayer mp;
+	private AudioManager am;
+	private int max;
+	private int current;
+	private int stepvolume;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -70,10 +85,53 @@ public class SettingActivity extends Activity {
 		Bundle bundle=this.getIntent().getExtras();
 		x=bundle.getString("num");
 		mm=bundle.getString("maxn");
+		current=bundle.getInt("music");
 		maxn=Integer.parseInt(mm);
 		rank_num=Integer.parseInt(x);
+		nn=Integer.toString(current);
 		
+		mp=new MediaPlayer();
+		try {
+			mp.setDataSource("rain.mp3");
+			mp.prepare();
+		} catch (IllegalArgumentException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} catch (IllegalStateException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		am=(AudioManager) this.getSystemService(Context.AUDIO_SERVICE);
+		max=am.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
+		stepvolume=max/10;
 		set();
+		
+		button1.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				current=am.getStreamVolume(AudioManager.STREAM_MUSIC);
+				int tempvolume=current-stepvolume;
+				current=tempvolume>0?tempvolume:0;
+				am.setStreamVolume(AudioManager.STREAM_MUSIC, current, AudioManager.FLAG_PLAY_SOUND);
+			}
+		});
+		
+		button3.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				current=am.getStreamVolume(AudioManager.STREAM_MUSIC);
+				int tempvolume=current+stepvolume;
+				current=tempvolume<max?tempvolume:max;
+				am.setStreamVolume(AudioManager.STREAM_MUSIC, current, AudioManager.FLAG_PLAY_SOUND);
+			}
+		});
 
 		button4.setOnClickListener(new View.OnClickListener() {
 			
@@ -121,6 +179,7 @@ public class SettingActivity extends Activity {
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
+				actionAlertDialog();
 			}
 		});
 	}
@@ -137,6 +196,7 @@ public class SettingActivity extends Activity {
 		Intent intent = new Intent();
 		x=Integer.toString(rank_num);
 		intent.putExtra("num",x);
+		intent.putExtra("music", current);
 		setResult(resultCode , intent);
 		int co=getResources().getColor(R.color.white);
 		rankTextView.setTextColor(co);
@@ -146,6 +206,10 @@ public class SettingActivity extends Activity {
         answerTextView.setText("ÔÝÍ£");
         answerTextView.setGravity(Gravity.CENTER);
         answerTextView.setTextSize(80);
+        
+        button1.setBackground(getResources().getDrawable(R.drawable.subbutton));
+        button2.setBackground(getResources().getDrawable(R.drawable.music));
+        button3.setBackground(getResources().getDrawable(R.drawable.plusbutton));
         button7.setBackground(getResources().getDrawable(R.drawable.yellowbutton));
         button4.setBackground(getResources().getDrawable(R.drawable.subbutton));
         button5.setBackground(getResources().getDrawable(R.drawable.rank));
@@ -160,7 +224,54 @@ public class SettingActivity extends Activity {
 		x=Integer.toString(rank_num);
 		intent.putExtra("setting",false);
 		intent.putExtra("num",x);
+		intent.putExtra("music", current);
 		setResult(resultCode , intent);
 		finish();
 	}
+	protected void actionAlertDialog(){
+        ArrayList<buyaction> list = initData();
+        AlertDialog.Builder builder;
+        AlertDialog alertDialog;
+        Context context = SettingActivity.this;
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(LAYOUT_INFLATER_SERVICE);
+        View layout = inflater.inflate(R.layout.myview, (ViewGroup)findViewById(R.id.layout_myview));
+        CornerListView myListView = (CornerListView) layout.findViewById(R.id.mylistview);
+        MyAdapter adapter = new MyAdapter(context, list);
+        myListView.setAdapter(adapter);
+        builder = new AlertDialog.Builder(context);
+        builder.setView(layout);
+        alertDialog = builder.create();
+        alertDialog.show();
+        
+    }
+    protected ArrayList<buyaction> initData(){
+        ArrayList<buyaction> list = new ArrayList<buyaction>();
+        buyaction p;
+        p = new buyaction();
+        p.name = "Ì×²Í"+1+" :";
+        p.num = 1;
+        p.val = 0.99;
+        list.add(p);
+        p = new buyaction();
+        p.name = "Ì×²Í"+2+" :";
+        p.num = 3;
+        p.val = 2.88;
+        list.add(p);
+        p = new buyaction();
+        p.name = "Ì×²Í"+3+" :";
+        p.num = 5;
+        p.val = 4.55;
+        list.add(p);
+        p = new buyaction();
+        p.name = "Ì×²Í"+4+" :";
+        p.num = 10;
+        p.val = 8.88;
+        list.add(p);
+        p = new buyaction();
+        p.name = "Ì×²Í"+5+" :";
+        p.num = 100;
+        p.val = 77.7;
+        list.add(p);
+        return list;
+    }
 }

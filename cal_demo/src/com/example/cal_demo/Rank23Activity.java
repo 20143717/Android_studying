@@ -1,5 +1,6 @@
 package com.example.cal_demo;
 
+import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -9,12 +10,15 @@ import android.R.integer;
 import android.R.string;
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.util.TypedValue;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -71,7 +75,14 @@ public class Rank23Activity extends Activity {
 		x=bundle.getString("num");
 		rank_num=Integer.parseInt(x);
 		set();
-		
+		button1.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				actionAlertDialog();
+			}
+		});
 		button2.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
@@ -263,4 +274,50 @@ public class Rank23Activity extends Activity {
 		setResult(resultCode , intent);
 		finish();
 	}
+	protected void actionAlertDialog(){
+        ArrayList<buyaction> list = initData();
+        AlertDialog.Builder builder;
+        AlertDialog alertDialog;
+        Context context = Rank23Activity.this;
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(LAYOUT_INFLATER_SERVICE);
+        View layout = inflater.inflate(R.layout.myview, (ViewGroup)findViewById(R.id.layout_myview));
+        CornerListView myListView = (CornerListView) layout.findViewById(R.id.mylistview);
+        MyAdapter adapter = new MyAdapter(context, list);
+        myListView.setAdapter(adapter);
+        builder = new AlertDialog.Builder(context);
+        builder.setView(layout);
+        alertDialog = builder.create();
+        alertDialog.show();
+        
+    }
+    protected ArrayList<buyaction> initData(){
+        ArrayList<buyaction> list = new ArrayList<buyaction>();
+        buyaction p;
+        p = new buyaction();
+        p.name = "Ì×²Í"+1+" :";
+        p.num = 1;
+        p.val = 0.99;
+        list.add(p);
+        p = new buyaction();
+        p.name = "Ì×²Í"+2+" :";
+        p.num = 3;
+        p.val = 2.88;
+        list.add(p);
+        p = new buyaction();
+        p.name = "Ì×²Í"+3+" :";
+        p.num = 5;
+        p.val = 4.55;
+        list.add(p);
+        p = new buyaction();
+        p.name = "Ì×²Í"+4+" :";
+        p.num = 10;
+        p.val = 8.88;
+        list.add(p);
+        p = new buyaction();
+        p.name = "Ì×²Í"+5+" :";
+        p.num = 100;
+        p.val = 77.7;
+        list.add(p);
+        return list;
+    }
 }

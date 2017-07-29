@@ -151,6 +151,14 @@
             android:name="com.example.cal_demo.Rank26Activity"
             android:label="@string/title_activity_rankone" >
         </activity>
+        <activity
+            android:name="com.example.cal_demo.MyAdapter"
+            android:label="@string/buy" >
+        </activity>
+        <activity
+            android:name="com.example.cal_demo.CornerListView"
+		>
+        </activity>
     </application>
     
 
